@@ -77,16 +77,21 @@ const Cards = () => {
   getTheData();
 }, [currentPage, initialLoadCount]);
 
-  const renderImage = useMemo(
-    () => (imageData, contentType) => {
+const renderImage = useMemo(
+  () => (imageData, contentType) => {
+    if (imageData && imageData.data) {
       const flattenedData = [].concat(imageData.data);
       const imageBlob = new Blob([new Uint8Array(flattenedData)], {
         type: contentType,
       });
       return URL.createObjectURL(imageBlob);
-    },
-    []
-  );
+    } else {
+      // Handle the case when imageData or imageData.data is undefined
+      return null; // Or provide a default value or take other appropriate action
+    }
+  },
+  []
+);
 
   const toggleImageStyle = (index) => {
     setData((prevData) => {
