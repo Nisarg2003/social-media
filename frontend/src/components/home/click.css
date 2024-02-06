@@ -1,0 +1,3 @@
+.post-image-transition {
+  transition: all 0.3s ease; /* You can adjust the duration and timing function */
+}
