@@ -18,7 +18,7 @@ router.get('/auth/github', (req, res) => {
   // Redirect the user to GitHub for OAuth authentication
   const githubAuthUrl = 'https://github.com/login/oauth/authorize' +
     '?client_id=a762a21970e572a32d4e' +
-    '&redirect_uri=http://localhost:8080/api/v1/auth/github/callback';
+    '&redirect_uri=https://social-media-app-5eap.onrender.com/api/v1/auth/github/callback';
 
   // Send the GitHub OAuth authorization URL back to the client
   res.json({ redirectUrl: githubAuthUrl });

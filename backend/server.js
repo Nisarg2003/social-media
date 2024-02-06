@@ -48,6 +48,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get("/",(req,res)=>{
+  res.send("Hello")
+})
 // Define your routes
 app.use("/api/v1", userRoutes);
 app.use("/api/v1/post", postRoutes);

@@ -10,7 +10,7 @@ import userModel from "../Models/userModel.js";
 passport.use(new GitHubStrategy({
     clientID: 'a762a21970e572a32d4e',
     clientSecret: 'f6f1afb857a174a0843d6e604f098d2cc7e0639c',
-    callbackURL: 'http://localhost:8080/api/v1/auth/github/callback'
+    callbackURL: 'https://social-media-app-5eap.onrender.com/api/v1/auth/github/callback'
   },
 
   
