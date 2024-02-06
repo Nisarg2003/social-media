@@ -22,12 +22,12 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://social-wave-app.vercel.app",
+    origin: "http://localhost:3000",
   },
 });
 
 const corsOptions = {
-  origin: "https://social-wave-app.vercel.app/",
+  origin: "http://localhost:3000",
   credentials: true,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionsSuccessStatus: 204,
