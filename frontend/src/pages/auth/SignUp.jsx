@@ -18,7 +18,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8080/api/v1/register", {
+      const res = await axios.post("https://social-media-app-5eap.onrender.com/api/v1/register", {
         name: formData.name,
         email: formData.email,
         password: formData.password,

@@ -16,7 +16,7 @@ const Cards = () => {
   const getTheData = async () => {
     try {
       const postData = await axios.get(
-        `http://localhost:8080/api/v1/post/all-posts/?page=${currentPage}&limit=${initialLoadCount}`
+        `https://social-media-app-5eap.onrender.com/api/v1/post/all-posts/?page=${currentPage}&limit=${initialLoadCount}`
       );
   
       if (currentPage === 1) {

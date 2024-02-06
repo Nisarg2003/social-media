@@ -26,7 +26,7 @@ const PostCard = ({ post, index, renderImage, toggleImageStyle }) => {
   useEffect(() => {
     const Likescheck = async () => {
       const res = await axios.post(
-        `http://localhost:8080/api/v1/post/check-likes/${post?._id}`,
+        `https://social-media-app-5eap.onrender.com/api/v1/post/check-likes/${post?._id}`,
         {
           userId: userId?._id,
         }
@@ -63,7 +63,7 @@ const PostCard = ({ post, index, renderImage, toggleImageStyle }) => {
       });
 
       const res = await axios.post(
-        `http://localhost:8080/api/v1/post/like-post/${post?._id}`,
+        `https://social-media-app-5eap.onrender.com/api/v1/post/like-post/${post?._id}`,
         {
           userId: userId?._id,
         }
@@ -86,7 +86,7 @@ const PostCard = ({ post, index, renderImage, toggleImageStyle }) => {
     <div className="text-white post-card bg-[#0a0a0a] border border-[#262626] shadow-md w-[95%] lg:w-[80%] xl:w-[70%] flex flex-col lg:flex-row overflow-hidden rounded-lg">
       <div className="w-full h-[400px] border-b-1 border-b-[#262626] lg:border-r-1 lg:border-r-[#262626]">
         <img
-          src={`http://localhost:8080/api/v1/post/images/${post._id}`}
+          src={`https://social-media-app-5eap.onrender.com/api/v1/post/images/${post._id}`}
           alt="Instagram Post"
           className={`w-full h-full bg-[#0a0a0a] ${post?.imageStyle}`}
           onClick={() => toggleImageStyle(index)}

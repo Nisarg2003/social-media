@@ -13,7 +13,7 @@ const ImageGrid = ({ onCountChange }) => {
     const getUserData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8080/api/v1/post/post-by-userId/${userId}`
+          `https://social-media-app-5eap.onrender.com/api/v1/post/post-by-userId/${userId}`
         );
         setData(res.data.posts);
         onCountChange(res.data.count);

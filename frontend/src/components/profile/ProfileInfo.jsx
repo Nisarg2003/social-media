@@ -27,7 +27,7 @@ const ProfileInfo = ({ postCount }) => {
   const getUserDetails = useCallback(async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8080/api/v1/user/${userId}`
+        `https://social-media-app-5eap.onrender.com/api/v1/user/${userId}`
       );
       setUserInfo(res.data);
       setProfilePic(res.data.profile_pic);
@@ -62,7 +62,7 @@ const ProfileInfo = ({ postCount }) => {
     console.log("formData", formData);
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/v1/update-profile-picture/${id}`,
+        `https://social-media-app-5eap.onrender.com/api/v1/update-profile-picture/${id}`,
         formData,
         {
           headers: {

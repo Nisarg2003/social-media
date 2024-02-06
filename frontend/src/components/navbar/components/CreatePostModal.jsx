@@ -26,7 +26,7 @@ const CreatePostModal = ({ onModalClose }) => {
       formDataToSend.append("image", formData.photo);
 
       const response = await axios.post(
-        "http://localhost:8080/api/v1/post/createPost",
+        "https://social-media-app-5eap.onrender.com/api/v1/post/createPost",
         formDataToSend,
         {
           headers: {

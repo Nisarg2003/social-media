@@ -36,7 +36,7 @@ const Comment = ({ handleBackClick, postId, userId }) => {
       try {
         
         await axios.post(
-          `http://localhost:8080/api/v1/post/comment-post/${postId}`,
+          `https://social-media-app-5eap.onrender.com/api/v1/post/comment-post/${postId}`,
           {
             comment: newComment,
             userId: userId,
@@ -50,13 +50,13 @@ const Comment = ({ handleBackClick, postId, userId }) => {
   };
   const fetchComments = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/v1/post/fetch-all-comments/${postId}`);
+      const response = await axios.get(`https://social-media-app-5eap.onrender.com/api/v1/post/fetch-all-comments/${postId}`);
       const commentData = response.data.comments;
   
       const commentsWithUsers = await Promise.all(commentData.map(async (comment) => {
         if (comment.user) {
           try {
-            const userResponse = await axios.get(`http://localhost:8080/api/v1/user/${comment.user}`);
+            const userResponse = await axios.get(`https://social-media-app-5eap.onrender.com/api/v1/user/${comment.user}`);
             const user = userResponse.data?.name;  
             return {
               ...comment,

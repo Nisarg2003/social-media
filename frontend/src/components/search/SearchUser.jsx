@@ -24,7 +24,7 @@ const SearchUserComponent = () => {
       _.debounce(async (term) => {
         try {
           const response = await axios.post(
-            `http://localhost:8080/api/v1/searchUser?search=${term}`
+            `https://social-media-app-5eap.onrender.com/api/v1/searchUser?search=${term}`
           );
           setSearchResults(response.data);
         } catch (error) {

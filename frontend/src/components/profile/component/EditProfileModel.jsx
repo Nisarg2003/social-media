@@ -24,7 +24,7 @@ const EditProfileModal = ({ isOpen, onClose, userId, setUserInfo }) => {
     }
     try {
       const response = await axios.put(
-        `http://localhost:8080/api/v1/updateUser/${userId}`,
+        `https://social-media-app-5eap.onrender.com/api/v1/updateUser/${userId}`,
         {
           payload: updatedFields,
         }
