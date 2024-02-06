@@ -10,7 +10,7 @@ const Comment = ({ handleBackClick, postId, userId }) => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    socketRef.current = io("http://localhost:8080");
+    socketRef.current = io("https://social-media-app-5eap.onrender.com");
 
     fetchComments();
     

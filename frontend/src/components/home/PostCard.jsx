@@ -14,7 +14,7 @@ const PostCard = ({ post, index, renderImage, toggleImageStyle }) => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    socketRef.current = io("http://localhost:8080");
+    socketRef.current = io("https://social-media-app-5eap.onrender.com");
 
     socketRef.current.on("Likes", (data) => {
       if (data.postId === post._id) {
@@ -54,7 +54,7 @@ const PostCard = ({ post, index, renderImage, toggleImageStyle }) => {
 
       setIsRequesting(true);
 
-      socketRef.current = io("http://localhost:8080");
+      socketRef.current = io("https://social-media-app-5eap.onrender.com");
 
       socketRef.current.on("Likes", (data) => {
         if (data.postId === post._id) {
