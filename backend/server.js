@@ -22,12 +22,12 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://social-media-gamma-dusky.vercel.app",
   },
 });
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://social-media-gamma-dusky.vercel.app",
   credentials: true,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionsSuccessStatus: 204,
