@@ -62,7 +62,7 @@ const ProfileInfo = ({ postCount }) => {
     console.log("formData", formData);
     try {
       const response = await axios.post(
-        `https://social-media-app-5eap.onrender.com/api/v1/update-profile-picture/${id}`,
+        `https://social-media-app-5eap.onrender.com/api/v1/update-profile-pic/${id}`,
         formData,
         {
           headers: {
