@@ -11,6 +11,7 @@ import {
 import useForm from "../../../hooks/useForm";
 import axios from "axios";
 import { toast } from "react-toastify";
+import imageCompression from "browser-image-compression";
 
 const CreatePostModal = ({ onModalClose }) => {
   const { formData, handleChange } = useForm({
@@ -20,11 +21,24 @@ const CreatePostModal = ({ onModalClose }) => {
 
   const handlePostCreation = async () => {
     try {
+      // Print the size of the image before compression
+      console.log("Original image size:", formData.photo.size);
+  
       const formDataToSend = new FormData();
       formDataToSend.append("description", formData.description);
       formDataToSend.append("user", localStorage.getItem("user"));
-      formDataToSend.append("image", formData.photo);
-
+  
+      // Compress the image before sending
+      const compressedPhoto = await imageCompression(formData.photo, {
+        maxSizeMB: 1, // Maximum size in megabytes
+        maxWidthOrHeight: 1920, // Maximum width or height
+      });
+  
+      // Print the size of the image after compression
+      console.log("Compressed image size:", compressedPhoto.size);
+  
+      formDataToSend.append("image", compressedPhoto);
+  
       const response = await axios.post(
         "https://social-media-app-5eap.onrender.com/api/v1/post/createPost",
         formDataToSend,
@@ -34,9 +48,9 @@ const CreatePostModal = ({ onModalClose }) => {
           },
         }
       );
-
+  
       console.log(response.data);
-
+  
       if (response.status === 200) {
         toast.success("Post created successfully");
         onModalClose();
@@ -52,6 +66,7 @@ const CreatePostModal = ({ onModalClose }) => {
       console.error("Error creating post:", error);
     }
   };
+  
 
   return (
     <ModalContent>
