@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo, useRef } from "react";
 import axios from "axios";
 import Card from "./PostCard";
+import MyLoader from "../Loader/Loader";
 
 const Cards = () => {
   const [data, setData] = useState([]);
@@ -112,7 +113,7 @@ const renderImage = useMemo(
 
   return (
     <div className="lg:w-[80%] w-[100%] flex flex-col justify-center items-center gap-5 py-5 pb-14">
-      {loading && <p className="text-white">Loading...</p>}
+      {loading && <MyLoader />}
       {error && <p>{error}</p>}
       {data.map((post, index) => (
         <Card
